@@ -1,0 +1,29 @@
+{
+  "name": "leetcode-js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.ts",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "test": "node dist/index.js",
+
+    "dev": "nodemon && npm run exec",
+    "exec": "ts-node src/index.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "nodemon": "^1.18.8",
+    "ts-node": "^7.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.0",
+    "@babel/core": "^7.2.0",
+    "@babel/plugin-proposal-class-properties": "^7.2.1",
+    "@babel/plugin-proposal-object-rest-spread": "^7.2.0",
+    "@babel/preset-env": "^7.2.0",
+    "@babel/preset-typescript": "^7.1.0",
+    "typescript": "^3.2.2"
+  }
+}
