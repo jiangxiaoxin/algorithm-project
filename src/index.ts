@@ -1,4 +1,4 @@
-import { test } from "./find-minimal-number-sorted-array";
+import { test } from "./find_minimal_number_in_sorted_array";
 
 
-test() //  find-minimal-number-sorted-array
+test() //  find_minimal_number_in_sorted_array
