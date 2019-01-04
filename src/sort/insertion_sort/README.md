@@ -12,7 +12,7 @@ export default function sort(nums: Array<number>) {
   for (let j = 1, length = nums.length; j < length ;j++ ) { // 处理[0]牌时，手里还没有牌，所以它就是已经排好序的，直接放入手中即可。所以我们从[1]牌开始
     let key = nums[j]
     let i = j -1
-    while(true) {
+    while(i>=0) {
       if (nums[i] <= key) { //假定前面的牌都是排好序的，所以如果要插入的牌[j]比前面的牌[i]大，那就不需要查找位置了，[j]的位置就是j，是准确的，跳出这次循环
         break
       }

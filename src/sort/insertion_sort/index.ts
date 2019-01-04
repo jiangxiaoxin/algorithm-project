@@ -7,7 +7,7 @@ export default function sort(nums: Array<number>) {
   for (let j = 1, length = nums.length; j < length ;j++ ) {
     let key = nums[j]
     let i = j -1
-    while(true) {
+    while(i>=0) {
       if (nums[i] <= key) {
         break
       }
@@ -20,25 +20,32 @@ export default function sort(nums: Array<number>) {
   }
 }
 
+import data from '../data.json'
+
 export function test() {
-  // let a = [0, 1, 3, 2, 5, 4]
-  // let b = [1, 5, 8, 2, 100, 0]
-  let c = [0, 1, 8, 2, 100, 5]
+
+  let {a,b,c} = data
+
+  // console.log(a, b, c)
+
+  let d = [1, 6, 8, 2, 100, 0]
+
+  sort(d)
 
   // console.log(a)
   // sort(a)
   // console.log(a)
 
-  console.log('--------------')
+  // console.log('--------------')
 
   // console.log(b)
   // sort(b)
   // console.log(b);
 
-  console.log('--------------')
+  // console.log('--------------')
 
-  console.log(c)
-  sort(c)
-  console.log(c)
+  // console.log(c)
+  // sort(c)
+  // console.log(c)
 
 }
