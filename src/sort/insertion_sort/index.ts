@@ -23,23 +23,12 @@ export default function sort(nums: Array<number>) {
 import data from '../data.json'
 
 export function test() {
-
-  let {a,b,c} = data
-
-  console.log(a)
-  sort(a)
-  console.log(a)
-
-  console.log('--------------')
-
-  console.log(b)
-  sort(b)
-  console.log(b);
-
-  console.log('--------------')
-
-  console.log(c)
-  sort(c)
-  console.log(c)
-
+  let $data: { [key:string] : number[] } = data // ts error: Element implicitly has an 'any' type because type 'xxxx' has no index signature
+  Object.keys($data).forEach(key => {
+    let nums = $data[key]
+    console.log('\n\n');
+    console.log(nums);
+    sort(nums)
+    console.log(nums);
+  })
 }
