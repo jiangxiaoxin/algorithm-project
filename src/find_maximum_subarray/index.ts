@@ -24,13 +24,7 @@ export function test() {
   // find(b)
 
   let c = [-2, -1, -1, -2, -3]
-  find(c)
-
-
-  var a = {
-    max: 1,
-    min: 0
-  }
+  // find(c)
 
 }
 
@@ -90,23 +84,6 @@ function find2(nums: Array<number>) {
 }
 
 
-interface Result {
-  startIndex: number,
-  endIndex: number,
-  max: number
-}
-
-function find3(nums:Array<number>, low:number, high: number) {
-  var mid = Math.floor((low + high) / 2)
-  var leftResult = find3(nums, low, mid)
-  var rightResult = find3(nums, mid+1, high)
-  var midResult = findMid(nums, low, high, mid)
-  
-}
-
-function findMid(nums:Array<number>, low:number, high: number, mid: number) {
-
-}
 
 
 
