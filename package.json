@@ -7,13 +7,13 @@
     "build": "tsc",
     "watch": "tsc --watch",
     "test": "node dist/index.js",
-
     "dev": "nodemon && npm run exec",
     "exec": "ts-node src/index.ts"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/node": "^10.12.18",
     "nodemon": "^1.18.8",
     "ts-node": "^7.0.1"
   },
