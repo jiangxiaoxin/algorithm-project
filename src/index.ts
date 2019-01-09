@@ -2,9 +2,9 @@
 // import { test } from "./sort/insertion_sort";
 // import { test } from "./sort/merge_sort";
 // import { test } from "./find_maximum_subarray";
+// import { test } from "./find_maximum_subarray/index2";
 
-import { test } from "./find_maximum_subarray/index2";
-
+import { test } from "./sort/heap_sort"
 
 test()
 
