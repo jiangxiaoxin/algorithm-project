@@ -107,7 +107,7 @@ heap_size = array.length
 function heap_extract_max(array) {
   max = array[0]  // 前面构建了最大堆，那么max = array[0]
 
-  array[0] = array[heap_size] // 把 heap_size 下标的元素换到 0 处，这跟 heap_sort 是类似的
+  array[0] = array[heap_size-1] // 把 heap_size 下标的元素换到 0 处，这跟 heap_sort 是类似的
 
   heap_size = heap_size - 1
 
