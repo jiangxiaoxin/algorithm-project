@@ -3,12 +3,14 @@
     /* Basic Options */
     "target": "es5",                          /* Specify ECMAScript target version: 'ES3' (default), 'ES5', 'ES2015', 'ES2016', 'ES2017','ES2018' or 'ESNEXT'. */
     "module": "commonjs",                     /* Specify module code generation: 'none', 'commonjs', 'amd', 'system', 'umd', 'es2015', or 'ESNext'. */
-    // "lib": [],                             /* Specify library files to be included in the compilation. */
-    // "allowJs": true,                       /* Allow javascript files to be compiled. */
-    // "checkJs": true,                       /* Report errors in .js files. */
+    "lib": [
+        "es6"   /*指定lib，项目里就不会用到lib.dom了，*/
+    ],                             /* Specify library files to be included in the compilation. */
+    "allowJs": true,                       /* Allow javascript files to be compiled. */
+    "checkJs": true,                       /* Report errors in .js files. */
     // "jsx": "preserve",                     /* Specify JSX code generation: 'preserve', 'react-native', or 'react'. */
-    "declarationDir": "dist/types",
-    "declaration": true,                   /* Generates corresponding '.d.ts' file. */
+    // "declarationDir": "dist/types",
+    // "declaration": true,                   /* Generates corresponding '.d.ts' file. */
     // "declarationMap": true,                /* Generates a sourcemap for each corresponding '.d.ts' file. */
     "sourceMap": true,                     /* Generates corresponding '.map' file. */
     // "outFile": "./",                       /* Concatenate and emit output to single file. */
@@ -29,7 +31,7 @@
     // "strictBindCallApply": true,           /* Enable strict 'bind', 'call', and 'apply' methods on functions. */
     // "strictPropertyInitialization": true,  /* Enable strict checking of property initialization in classes. */
     // "noImplicitThis": true,                /* Raise error on 'this' expressions with an implied 'any' type. */
-    // "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
+    "alwaysStrict": true,                  /* Parse in strict mode and emit "use strict" for each source file. */
 
     /* Additional Checks */
     // "noUnusedLocals": true,                /* Report errors on unused locals. */
