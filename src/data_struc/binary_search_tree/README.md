@@ -117,3 +117,106 @@ function tree_maxmium(x) {
   return node
 }
 ```
+
+#### 二叉搜索树插入和删除
+
+##### 插入
+```
+将一个新的节点 v，插入到一棵二叉搜索树 T 中
+
+1.如果 T是空树，那就直接指向新节点就行。
+T.root = V
+2.如果 T不是空树
+x = T.root
+while(x != nil) {
+  y = x
+  if (x.value > v.value) {  //去x的左支找
+    x = x.left
+  } else {  // 去找x的右支
+    x = x.right
+  }
+}
+
+// 最后跳出while时，x就是nil，而y指向最后一个节点，那接下来就是比较节点 y的值跟节点 v的值
+
+v.parent = v
+if (y.value > v.value) { // y的值比v的值大，那v就是y的左子
+  y.left = v
+} else {  // v是 y的右子
+  y.right = v
+}
+```
+##### 删除
+
+```
+从一棵二叉搜索树 T 中删除一个节点 v。这个问题稍微复杂些，要考虑不同情况
+
+1.如果树是空的，那直接返回，这种情况是错误的，不需要考虑了
+2.如果节点 v 没有左节点和右节点，那么就直接删掉 v 就行。只要更改 v的父节点的节点指向就行
+if (v.left == nil && v.right == nil) {
+  parent = v.parent
+  if (parent == nil) {  // v就是根节点了
+    root = nil // 把根节点删掉，树就空了
+  } else {
+    if (parent.left == v) { // v是父亲的左儿子
+      parent.left = nil
+    } else {  //v是父亲的右儿子
+      parent.right = nil
+    }
+  }
+}
+3.如果节点 v 有左儿子，但是没有右儿子，以下图3号节点为例。
+3的左数和右边部分之间是满足二叉搜索树的条件的，移除3后，只要用3的左儿子7来代替3的位置就可以了
+
+if (v.left != nil && v.right == nil) {
+  left = v.left
+  parent = v.parent
+  if (parent == nil) { // v是根节点
+    left.parent = nil
+    root = v.left
+  } else {
+    left.parent = parent
+    parent.left = left
+  }
+}
+```
+![有左没右](./img/有左没右.png)
+```
+4.如果节点 v 有右儿子，但是没有左儿子.以下图节点4为例
+
+其父节点剩下的其他节点和整个树的右边部分再加上它右儿子树，整体都满足二叉搜索树的条件。
+只要将v的右儿子替换v就可以了
+
+if (v.left == nil && v.right != nil) {
+  parent = v.parent
+  right = v.right
+  if (parent == nil) { // 跟上面情况类似，这里不写了
+    .....
+  } else {
+    right.parent = parent
+    if (v is parent.left) {
+      parent.left  = right
+    } else {
+      parent.right = right
+    }
+  }
+}
+```
+![有右没有左](./img/有右没有左.png)
+
+```
+5.如果v既有左儿子又有右儿子，那就麻烦一点了。看下图解释
+```
+![有左也有右](./img/有左也有右.png)
+
+
+
+#### 如何构建一棵二叉搜索树
+
+有一个简单方法：一个数组A，构建一个对应的二叉搜索树，其实只要每次从数组里拿出一个数字，然后调用二叉搜索树的插入就可以最后得到一个二叉搜索树。
+
+但是这样构建的树性能怎么样？尽量分散了吗？不好说。
+比如，一个已经排好序的数组，按照这方法，最后的树就是一根直溜溜的往左或者往右了，树的高度就是
+A.length-1,但这样的树明显不好。
+
+对于一个元素出现随机的数组，效果应该还行。但是对于排序好的数组，那就完蛋。对于排序好的数组，是不是可以每次随机一个索引，然后拿索引对应的值插入呢？
