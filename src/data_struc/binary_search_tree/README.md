@@ -10,7 +10,7 @@
 
 中序遍历的结果就是将一颗二叉搜索树按照从小到大的顺序，有序的输出
 
-```
+```js
 function inorder_tree_walk(root) {
   if (root == nil) {
     return
@@ -23,6 +23,7 @@ function inorder_tree_walk(root) {
 ```
 
 ## 查询二叉搜索树
+
 就是给定一棵二叉搜索树，和一个值，查一下这个值是不是在这个树上
 
 ```
@@ -43,7 +44,7 @@ function tree_search(root, value) {
 
 上面是不断递归的方式，下面也可以用迭代去做
 
-```
+```c
 function iterative_tree_search(root, value) {
   while(root != nil &&　root.value != value) {
     if (root.value < value ) {
@@ -55,7 +56,6 @@ function iterative_tree_search(root, value) {
   return root
 }
 ```
-
 
 ### 前驱和后继
 
