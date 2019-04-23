@@ -86,10 +86,8 @@ function postOrderTraverse(tree, level) {
 }
 
 // 层序遍历
-function levelOrderTraverse(tree, level) {
+function levelOrderTraverse(tree) {
   var root = tree;
-  level = level || 0;
-  var last = null;
   var queue = [root];
   while(queue.length > 0) {
     var current = queue.shift();
@@ -100,6 +98,5 @@ function levelOrderTraverse(tree, level) {
     if (current.right) {
       queue.push(current.right);
     }
-    last = current;
   }
 }
