@@ -108,9 +108,12 @@
                 } else {
                     // 该节点左右子树都有,有两种处理方法：
                     // 1.从该节点的左树上找最大节点，让这个最大节点去坐自己的位置，然后把最大节点从原来的位置上删除
+                    // 这个最大节点肯定要么没有子节点，要么只有左子节点，下面再递归一次就能删除这个最大子节点
+
                     // 2.从该节点的右树上找最小节点，让这个最小节点去坐自己的位置，然后把最小节点从原来的位置上删除
                     var maxNode = findMax(xNode.left)
-                    deleteX(xNode.left, maxNode.value)
+                    var newRoot = deleteX(xNode.left, maxNode.value)
+                    console.log('删除中newRoot', newRoot)
                     var parent = xNode.parent
                     if (parent) {
                         if (xNode === parent.left) {
@@ -128,7 +131,7 @@
                     xNode.parent = null
                     xNode.left = null
                     xNode.right = null
-                    return tree
+                    return newRoot
                 }
             }
 
