@@ -84,3 +84,22 @@ function postOrderTraverse(tree, level) {
   var space = multiSpace(level*2)
   console.log(`${space} |node index:${node.index} value:${node.value}`);
 }
+
+// 层序遍历
+function levelOrderTraverse(tree, level) {
+  var root = tree;
+  level = level || 0;
+  var last = null;
+  var queue = [root];
+  while(queue.length > 0) {
+    var current = queue.shift();
+    console.log(`|node index:${current.index} value:${current.value}`);
+    if (current.left) {
+      queue.push(current.left);
+    }
+    if (current.right) {
+      queue.push(current.right);
+    }
+    last = current;
+  }
+}
