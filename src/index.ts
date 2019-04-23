@@ -8,7 +8,5 @@
 // import { test } from './data_struc/binary_tree/index'
 
 
-// test()
-
 
 

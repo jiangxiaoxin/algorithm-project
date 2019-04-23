@@ -1,15 +1,5 @@
 // @ts-nocheck
 
-class BNode {
-  // @ts-ignore
-  constructor(value, left, right, parent) {
-    this.value = value;
-    this.left = left;
-    this.right = right;
-    this.parent = parent;
-  }
-}
-
 /**
  * 创建一棵完全二叉树
  * @param {Number} num 节点的个数
@@ -98,5 +88,18 @@ function levelOrderTraverse(tree) {
     if (current.right) {
       queue.push(current.right);
     }
+  }
+}
+// 翻转二叉树，将所有的节点的左右节点交换
+function invertBTree(tree) {
+  var current = tree;
+  var temp = current.right;
+  current.right = current.left;
+  current.left = temp;
+  if (current.left) {
+    invertBTree(current.left);
+  }
+  if (current.right) {
+    invertBTree(current.right);
   }
 }

@@ -2,3 +2,5 @@ node_modules/
 
 # ts打包出来的文件
 dist/
+
+.idea/
