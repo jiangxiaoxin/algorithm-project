@@ -5,6 +5,7 @@
     <title>binary search tree</title>
     <script src="../jquery-3.4.0.js"></script>
     <script src="../binary_tree/node.js"></script>
+    <script src="../binary_tree/index.js"></script>
     <script src="index.js"></script>
 </head>
 <body>
@@ -51,10 +52,11 @@
             }
 
             var root = nodes[0]
-            var x = 20
+            var x = 40
             var newRoot = deleteX(root, x)
             console.log('after delete')
             console.log(newRoot)
+            levelOrderTraverse(newRoot)
 
             function deleteX(tree, x) {
                 var xNode = findX(tree, x)
@@ -64,7 +66,7 @@
                 }
                 if (!xNode.left && !xNode.right) { // 没有子节点，那就直接删除这个节点
                     var parent = xNode.parent
-                    if (parent) {
+                    if (parent) { // 有父节点，说明不是根结点
                         if (parent.left === xNode) {
                             parent.left = null
                         } else if (parent.right === xNode) {
@@ -72,9 +74,13 @@
                         } else {
                             console.warn('又不是左，又不是右，那你想干吗呀')
                         }
+                        xNode.parent = null
+                        return tree
+                    } else { // 要删除的节点没有父节点，那这个节点就是原来的根结点。 并且这个节点没有左也没有右，那删除之后整个树就是null了
+                        return null
                     }
-                    xNode.parent = null
-                    return tree
+
+
                 } else if (!xNode.left && xNode.right) { // 如果x只有1个节点，那就删除x，然后让x的子节点坐自己的位置
                     var right = xNode.right
                     var parent = xNode.parent
@@ -85,10 +91,17 @@
                         if (xNode === parent.right) {
                             parent.right = right
                         }
+                        right.parent = parent
+                        xNode.parent = null
+                        xNode.right = null
+                        return tree
+                    } else {
+                        right.parent = null
+                        xNode.right = null
+                        return right
                     }
-                    right.parent = parent
-                    xNode.parent = null
-                    xNode.right = null
+
+
                     return tree
                 } else if (xNode.left && !xNode.right) {
                     var left = xNode.left
@@ -100,11 +113,16 @@
                         if (xNode === parent.right) {
                             parent.right = left
                         }
+                        left.parent = parent
+                        xNode.parent = null
+                        xNode.left = null
+                        return tree
+                    } else {
+                        left.parent = null
+                        xNode.left = null
+                        return left
                     }
-                    left.parent = parent
-                    xNode.parent = null
-                    xNode.left = null
-                    return tree
+
                 } else {
                     // 该节点左右子树都有,有两种处理方法：
                     // 1.从该节点的左树上找最大节点，让这个最大节点去坐自己的位置，然后把最大节点从原来的位置上删除
@@ -112,26 +130,42 @@
 
                     // 2.从该节点的右树上找最小节点，让这个最小节点去坐自己的位置，然后把最小节点从原来的位置上删除
                     var maxNode = findMax(xNode.left)
-                    var newRoot = deleteX(xNode.left, maxNode.value)
-                    console.log('删除中newRoot', newRoot)
+                    deleteX(xNode.left, maxNode.value)
                     var parent = xNode.parent
                     if (parent) {
                         if (xNode === parent.left) {
-                            parent.left = left
+                            parent.left = maxNode
                         }
                         if (xNode === parent.right) {
-                            parent.right = left
+                            parent.right = maxNode
                         }
+                        maxNode.parent = parent
+                        maxNode.left = xNode.left
+                        if (maxNode.left) {
+                            maxNode.left.parent = maxNode
+                        }
+                        maxNode.right = xNode.right
+                        if (maxNode.right) {
+                            maxNode.right.parent = maxNode
+                        }
+                        xNode.parent = null
+                        xNode.left = null
+                        xNode.right = null
+                        return tree
+                    } else {
+                        maxNode.parent = null
+                        maxNode.left = xNode.left
+                        maxNode.right = xNode.right
+                        if (maxNode.left) {
+                            maxNode.left.parent = maxNode
+                        }
+                        if (maxNode.right) {
+                            maxNode.right.parent = maxNode
+                        }
+                        xNode.left = null
+                        xNode.right = null
+                        return maxNode
                     }
-                    maxNode.parent = parent
-                    maxNode.left = xNode.left
-                    maxNode.left.parent = maxNode
-                    maxNode.right = xNode.right
-                    maxNode.right.parent = maxNode
-                    xNode.parent = null
-                    xNode.left = null
-                    xNode.right = null
-                    return newRoot
                 }
             }
 

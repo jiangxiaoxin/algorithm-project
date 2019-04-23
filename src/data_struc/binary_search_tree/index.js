@@ -36,3 +36,11 @@ function findMax(tree) {
     }
     return node
 }
+
+function isRootNode(node) {
+    if (node && !node.parent) {
+        return true
+    } else {
+        return false
+    }
+}
