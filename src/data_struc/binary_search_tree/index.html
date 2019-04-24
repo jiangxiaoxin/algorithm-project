@@ -51,12 +51,12 @@
                 }
             }
 
-            var root = nodes[0]
-            var x = 40
-            var newRoot = deleteX(root, x)
-            console.log('after delete')
-            console.log(newRoot)
-            levelOrderTraverse(newRoot)
+            // var root = nodes[0]
+            // var x = 40
+            // var newRoot = deleteX(root, x)
+            // console.log('after delete')
+            // console.log(newRoot)
+            // levelOrderTraverse(newRoot)
 
             function deleteX(tree, x) {
                 var xNode = findX(tree, x)
@@ -168,7 +168,68 @@
                     }
                 }
             }
+            /*
+            * tree:树的根节点
+            * x：要找后继的节点的value
+            * return： 找到的后继节点
+            */
+            function wayOne(tree, x) {
+                var node = findX(tree, x)
+                if (!node) {
+                    return null
+                }
+                if (node.right) {
+                    return findMin(node.right)
+                } else {
+                    var y = node.parent
+                    while(1) {
+                        
+                        if (!y) {
+                            break
+                        }
+                        if (node === y.right) {
+                            node = y
+                            y = y.parent
+                        } else if (node === y.left){
+                            break
+                        }
+                    }
+                    return y
+                }
+            }
 
+            function wayTwo(tree, x) {
+                var node = findX(tree, x)
+                if (!node) {
+                    return null
+                }
+                if (node.right) {
+                    return findMin(node.right)
+                } else {
+                    var y = node
+                    while(y.parent) {
+                        if (y === y.parent.left) {
+                            break
+                        }
+                        y = y.parent
+                    }
+                    return y.parent
+                }
+            }
+
+            var x1 = 35
+            var x2 = 33
+
+            var v1 = wayOne(nodes[0], x1)
+            var v2 = wayTwo(nodes[0], x1)
+
+            var v3 = wayOne(nodes[0], x2)
+            var v4 = wayTwo(nodes[0], x2)
+
+            console.log(`x: ${x1} wanted: 38, result: \n`)
+            console.log(v1, v2)
+            console.log(`x: ${x2} wanted: 35, result: \n`)
+            console.log(v3, v4)
 
         }
     )
