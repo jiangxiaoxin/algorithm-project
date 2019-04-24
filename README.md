@@ -9,8 +9,8 @@
 
 > 在 vscode里测试时，会有时候结果不对，不知为啥。还是运行 dev吧。
 
-## 《算法导论》
-- 6.堆排序
-- 7.快速排序
-- 10.基本数据结构
-- 12.[二叉查找树](./src/data_struc/binary_search_tree/README.md)
+
+[二叉树](./src/data_struc/binary_tree/index.md)
+[二叉查找树](./src/data_struc/binary_search_tree/README.md)
+[平衡二叉树](./src/data_struc/balanced_btree/index.md)
+[优先队列](./src/data_struc/优先队列/index.md)
