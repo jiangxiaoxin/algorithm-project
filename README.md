@@ -13,4 +13,4 @@
 [二叉树](./src/data_struc/binary_tree/index.md)
 [二叉查找树](./src/data_struc/binary_search_tree/README.md)
 [平衡二叉树](./src/data_struc/balanced_btree/index.md)
-[优先队列](./src/data_struc/优先队列/index.md)
+[堆和优先队列](./src/data_struc/堆和优先队列/index.md)
