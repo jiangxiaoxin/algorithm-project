@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>堆和优先队列</title>
+  <script src="../jquery-3.4.0.js"></script>
+  <script src="./index.js"></script>
+</head>
+
+<body>
+  <script>
+    $(document).ready(function () {
+
+      // 两个最大堆
+      const arr1 = [20, 15, 2, 14, 10]
+      const arr2 = [95, 84, 92, 63, 74, 49, 45, 34, 38, 36, 39, 11, 16]
+
+      let nodeList
+
+      // // test1
+      // nodeList = createMaxHeap(arr1)
+      // console.log(nodeList)
+      // maxHeapInsert(nodeList, 30)
+      // console.log(nodeList)
+
+      // // test2
+      // nodeList = []
+      // maxHeapInsert(nodeList, 30)
+      // console.log(nodeList)
+
+
+      //test3
+      nodeList = createMaxHeap(arr2)
+      console.table(nodeList)
+      maxHeapInsert(nodeList, 100)
+      console.table(nodeList)
+    })  
+  </script>
+</body>
+
+</html>
