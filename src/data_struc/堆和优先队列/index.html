@@ -22,9 +22,9 @@
 
       // // test1
       // nodeList = createMaxHeap(arr1)
-      // console.log(nodeList)
+      // console.table(nodeList)
       // maxHeapInsert(nodeList, 30)
-      // console.log(nodeList)
+      // console.table(nodeList)
 
       // // test2
       // nodeList = []
@@ -33,10 +33,26 @@
 
 
       //test3
-      nodeList = createMaxHeap(arr2)
+      // nodeList = createMaxHeap(arr2)
+      // console.table(nodeList)
+      // maxHeapInsert(nodeList, 100)
+      // console.table(nodeList)
+
+      // test4
+      nodeList = createMaxHeap(arr1)
+      let deletedNode
+      deletedNode = maxHeapDelete(nodeList)
+      console.log(deletedNode)
       console.table(nodeList)
-      maxHeapInsert(nodeList, 100)
-      console.table(nodeList)
+      console.log('\n\n')
+      // deletedNode = maxHeapDelete(nodeList)
+      // console.log(deletedNode)
+      // console.table(nodeList)
+      // console.log('\n\n')
+      // deletedNode = maxHeapDelete(nodeList)
+      // console.log(deletedNode)
+      // console.table(nodeList)
+      // console.log('\n\n')
     })  
   </script>
 </body>

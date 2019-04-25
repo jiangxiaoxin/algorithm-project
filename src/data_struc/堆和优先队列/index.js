@@ -12,7 +12,7 @@ class Node {
 // 先把最大堆转成二叉树表示，arr已经是满足最大堆要求了
 function createMaxHeap(arr) {
   let nodeList = []
-  for (let i = 0; i < arr.length; i++) { 
+  for (let i = 0; i < arr.length; i++) {
     let node = new Node(arr[i], null, null, null, i)
     nodeList.push(node)
   }
@@ -43,14 +43,14 @@ function createMaxHeap(arr) {
 
 function maxHeapInsert(nodeList, val) {
   //创建个新节点
-  var newNode = new Node(val, null, null, null, nodeList.length) 
+  var newNode = new Node(val, null, null, null, nodeList.length)
   if (nodeList.length === 0) { // 原来的最大堆是空的,把新节点插入数组后返回nodeList就行了
     nodeList.push(newNode)
     return nodeList
   }
 
   let size = nodeList.length
-  let index = Math.floor(size/2)
+  let index = Math.floor(size / 2)
   let node = nodeList[index] // 最开始要插入的节点位置
   nodeList.push(newNode)
   if (!node.left) {
@@ -63,7 +63,7 @@ function maxHeapInsert(nodeList, val) {
     console.warn('这个父节点有左右树，这不可能，肯定哪里错了')
   }
 
-  while(newNode.parent) {
+  while (newNode.parent) {
     if (newNode.value < newNode.parent.value) {
       // 符合最大堆的要求
       break;
@@ -103,5 +103,123 @@ function maxHeapInsertSwap(nodeList, node) {
       parentparent.right = node
     }
   }
-  
+
+}
+
+
+// 最大堆的删除
+// 执行一次，返回删除的根节点，并修改剩下的树，使之满足最大堆要求
+function maxHeapDelete(nodeList) {
+  if (!nodeList || nodeList.length === 0) {
+    return null
+  }
+  let root = nodeList.shift()
+  let last = nodeList.pop()
+  if (last.parent) { // 如果last.parent存在，那last要去坐根节点的位置，这里要断开跟last和last.parent的关系
+    if (last === last.parent.left) {
+      last.parent.left = null
+    }
+    if (last === last.parent.right) {
+      last.parent.right = null
+    }
+    last.parent = null
+  }
+  last.left = root.left
+  last.right = root.right
+  if (last.left === null && last.right === null) {
+    // 这就是个光杆司令呀,那last此时就成了根节点了，可以退出了
+  }
+  if (last.left) {
+    last.left.parent = last
+  }
+  if (last.right) {
+    last.right.parent = last
+  }
+
+  nodeList.unshift(last) //把last提到最前面
+  last.index = 0
+
+  while(greaterThanChildren(last) === false) {
+    let child = findBiggestChild(last)
+    if (child) {
+      let childLeft = child.left
+      let childRight = child.right
+      let childIndex = child.index
+
+      let lastLeft  = last.left
+      let lastRight = last.right
+      let lastParent = last.parent
+      let lastIndex = last.index
+
+      if (last.left === child) {
+        child.left = last
+        child.right = lastRight
+        if (lastRight) {
+          lastRight.parent = child
+        }
+      }
+      if (last.right === child) {
+        child.right = last
+        child.left = lastLeft
+        if (lastLeft) {
+          lastLeft.parent = child
+        }
+      }
+
+      if (lastParent) {
+        if (last === lastParent.left) {
+          lastParent.left = child
+        }
+        if (last === lastParent.right) {
+          lastParent.right = child
+        }
+      }
+
+      child.parent = lastParent
+      child.index = lastIndex
+
+      last.parent = child
+      last.left = childLeft
+      last.right = childRight
+      last.index = childIndex
+
+      nodeList[child.index] = child
+      nodeList[last.index] = last
+    } else {
+      console.warn('last不比children们大，但又找不到大的child，这种情况是不会出现的')
+      break
+    }
+  }
+
+  // 比children都大那就满足条件了，可以退出了
+  root.left = null
+  root.right = null
+  root.index = -1
+  return root
+}
+
+// 节点的值是否比左节点的值大
+// 如果有左节点，那比较值。如果没有，那就认为大
+function greaterThanLeft(node) {
+  return node && ((node.left && node.value > node.left.value) || (!node.left))
+}
+
+function greaterThanRight(node) {
+  return node && ((node.right && node.value > node.right.value) || (!node.right))
+}
+
+function greaterThanChildren(node) {
+  return greaterThanLeft(node) && greaterThanRight(node)
+}
+
+function findBiggestChild(node) {
+  if (node.left && node.right) {
+    return node.left.value > node.right.value ? node.left : node.right
+  } else if (node.left && !node.right) {
+    return node.left
+  } else if (!node.left && node.right) {
+    return node.right
+  } else {
+    return null
+  }
 }
