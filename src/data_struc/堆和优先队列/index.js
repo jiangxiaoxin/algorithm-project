@@ -9,8 +9,9 @@ class Node {
   }
 }
 
-// 先把最大堆转成二叉树表示，arr已经是满足最大堆要求了
-function createMaxHeap(arr) {
+// 将一个数组表示成一棵完全二叉树
+// 如果传入的数组本身已经是按照最大堆的要求排序的，那得到的就是棵用来表示最大堆的二叉树
+function createCompleteBinaryTreeFromArray(arr) {
   let nodeList = []
   for (let i = 0; i < arr.length; i++) {
     let node = new Node(arr[i], null, null, null, i)
@@ -222,4 +223,94 @@ function findBiggestChild(node) {
   } else {
     return null
   }
+}
+
+function hasChildren(node) {
+  return !!(node && (node.left || node.right));
+}
+
+function isLeft(parent, child) {
+  return parent && child && (parent.left === child);
+}
+
+function isRight(parent, child) {
+  return parent && child && (parent.right === child);
+}
+
+
+
+/**
+ * 从一个数组里创建一个最大堆
+ * @param arr 值的数组，随便一个数组就行
+ * @returns { Array } 表示最大堆的数组
+ */
+function createMaxHeap(arr) {
+  if (!arr) { // null或者[]
+    return null;
+  }
+  if (!arr.length) {
+      return [];
+  }
+  let result = createCompleteBinaryTreeFromArray(arr);
+  let size = result.length;
+  let lastIndex = Math.floor(size/2) - 1; // 最后一个非叶子节点的索引。如果数组length=0，size=0，lastIndex=-1，这是合理的，因为此时的确没有非叶子节点呀，那唯一的子节点，是根节点，也是个叶子节点。
+
+  while(lastIndex >= 0) {
+    let lastNode = result[lastIndex];
+    while (hasChildren(lastNode) === true) {
+      let child = findBiggestChild(lastNode);
+      if (child.value < lastNode.value) {
+        break;
+      }
+      // 大小关系不满足最大堆的要求，那么就要将child和lastNode互换
+        let childIndex = child.index;
+        let childLeft = child.left;
+        let childRight = child.right;
+
+        let lastNodeIndex = lastNode.index;
+        let lastNodeParent = lastNode.parent;
+
+        child.index = lastNodeIndex;
+        child.parent = lastNodeParent;
+        if (isLeft(lastNode, child)) {
+          child.left = lastNode;
+          child.right = lastNode.right;
+          if (child.right) {
+            child.right.parent = child;
+          }
+        }
+        if (isRight(lastNode, child)) {
+          child.right = lastNode;
+          child.left = lastNode.left;
+          if (child.left) {
+            child.left.parent = child;
+          }
+        }
+
+        if (lastNodeParent) {
+            if (isLeft(lastNodeParent, lastNode)) {
+                lastNodeParent.left = child;
+            }
+            if (isRight(lastNodeParent, lastNode)) {
+              lastNodeParent.right = child;
+            }
+        }
+
+        lastNode.index = childIndex;
+        lastNode.left = childLeft;
+        lastNode.right = childRight;
+        if (childLeft) {
+          childLeft.parent = lastNode;
+        }
+        if (childRight) {
+          childRight.parent = lastNode;
+        }
+        lastNode.parent = child;
+
+        result[lastNodeIndex] = child;
+        result[childIndex] = lastNode;
+    }
+    lastIndex -= 1;
+  }
+  return result;
 }

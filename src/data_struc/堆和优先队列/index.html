@@ -15,13 +15,13 @@
     $(document).ready(function () {
 
       // 两个最大堆
-      const arr1 = [20, 15, 2, 14, 10]
-      const arr2 = [95, 84, 92, 63, 74, 49, 45, 34, 38, 36, 39, 11, 16]
+      const arr1 = [20, 15, 2, 14, 10];
+      const arr2 = [95, 84, 92, 63, 74, 49, 45, 34, 38, 36, 39, 11, 16];
 
-      let nodeList
+      let nodeList;
 
       // // test1
-      // nodeList = createMaxHeap(arr1)
+      // nodeList = createCompleteBinaryTreeFromArray(arr1)
       // console.table(nodeList)
       // maxHeapInsert(nodeList, 30)
       // console.table(nodeList)
@@ -32,19 +32,15 @@
       // console.log(nodeList)
 
 
-      //test3
-      // nodeList = createMaxHeap(arr2)
+      //test3 最大堆的插入
+      // nodeList = createCompleteBinaryTreeFromArray(arr2)
       // console.table(nodeList)
       // maxHeapInsert(nodeList, 100)
       // console.table(nodeList)
 
-      // test4
-      nodeList = createMaxHeap(arr1)
-      let deletedNode
-      deletedNode = maxHeapDelete(nodeList)
-      console.log(deletedNode)
-      console.table(nodeList)
-      console.log('\n\n')
+      // test4 最大堆的删除
+      // nodeList = createCompleteBinaryTreeFromArray(arr1)
+      // let deletedNode
       // deletedNode = maxHeapDelete(nodeList)
       // console.log(deletedNode)
       // console.table(nodeList)
@@ -53,7 +49,19 @@
       // console.log(deletedNode)
       // console.table(nodeList)
       // console.log('\n\n')
-    })  
+      // deletedNode = maxHeapDelete(nodeList)
+      // console.log(deletedNode)
+      // console.table(nodeList)
+      // console.log('\n\n')
+
+    // test5 最大堆的创建
+
+        // var arr = [79,66,43,83,90];
+        var arr = [79,66,43,83,30,87,38,55,91,72,49,9];
+        var maxHeap = createMaxHeap(arr);
+        console.log(maxHeap);
+
+    })
   </script>
 </body>
 
