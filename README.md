@@ -17,3 +17,5 @@
 [平衡二叉树](./src/data_struc/balanced_btree/index.md)
 
 [堆和优先队列](./src/data_struc/堆和优先队列/index.md)
+
+[霍夫曼编码](./src/data_struc/霍夫曼/index.md)
