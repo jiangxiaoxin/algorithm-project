@@ -10,19 +10,19 @@
 > 在 vscode里测试时，会有时候结果不对，不知为啥。还是运行 dev吧。
 
 
-[二叉树](./src/data_struc/binary_tree/index.md)
+[二叉树](./src/数据结构/二叉树/index.md)
 
-[二叉查找树](./src/data_struc/binary_search_tree/README.md)
+[二叉查找树](./src/数据结构/二叉查找树/README.md)
 
-[平衡二叉树](./src/data_struc/balanced_btree/index.md)
+[平衡二叉树](./src/数据结构/平衡二叉树/index.md)
 
-[堆和优先队列](./src/data_struc/堆和优先队列/index.md)
+[堆和优先队列](./src/数据结构/堆和优先队列/index.md)
 
-[霍夫曼编码](./src/data_struc/霍夫曼/index.md)
+[霍夫曼编码](./src/数据结构/霍夫曼/index.md)
 
 [散列表]()
 
-[图]()
+[图](./src/数据结构/图/index.md)
 
 [红黑树]()
 
