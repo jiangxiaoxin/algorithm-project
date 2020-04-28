@@ -11,7 +11,7 @@
 
 [二叉树](./src/structure/二叉树/index.md)
 
-[二叉查找树](./src/structure/二叉查找树/README.md)
+[二叉查找树](./src/structure/binary_search_tree/README.md)
 
 [平衡二叉树](./src/structure/平衡二叉树/index.md)
 
