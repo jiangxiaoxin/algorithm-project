@@ -223,6 +223,11 @@ function findBiggestChild(node) {
   } else {
     return null
   }
+  // // 如果能确定节点的值都是非负的，那这里可以简略
+  // let left = node.left || 0;
+  // let right = node.right || 0;
+  // // 这里不用担心left或者right可能是null的情况，因为如果是null，返回的就是null。如果不是null，返回的就是真实的节点
+  // return left > right ? node.left : node.right; 
 }
 
 function hasChildren(node) {
@@ -253,6 +258,10 @@ function createMaxHeap(arr) {
   }
   let result = createCompleteBinaryTreeFromArray(arr);
   let size = result.length;
+
+  // 从最后一个非叶子节点开始处理非常重要
+  // 剩下的就是中间交换节点的时候，把相关的指针处理对就可以了
+
   let lastIndex = Math.floor(size/2) - 1; // 最后一个非叶子节点的索引。如果数组length=0，size=0，lastIndex=-1，这是合理的，因为此时的确没有非叶子节点呀，那唯一的子节点，是根节点，也是个叶子节点。
 
   while(lastIndex >= 0) {
@@ -260,9 +269,10 @@ function createMaxHeap(arr) {
     while (hasChildren(lastNode) === true) {
       let child = findBiggestChild(lastNode);
       if (child.value < lastNode.value) {
+        // 直接就满足条件了，跳出循环，lastIndex减1，
         break;
       }
-      // 大小关系不满足最大堆的要求，那么就要将child和lastNode互换
+      // 根节点和子节点的大小关系不满足最大堆的要求，那么就要将child和lastNode互换
         let childIndex = child.index;
         let childLeft = child.left;
         let childRight = child.right;
