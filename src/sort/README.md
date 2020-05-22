@@ -7,7 +7,7 @@
 - [x] [堆排序](#heap-sort)
 - [x] [归并排序](#merge-sort)
 - [x] [选择排序](#select-sort)
-- [ ] [基数排序](#radix-sort)
+- [x] [基数排序](#radix-sort)
 
 <h2 id="bubble-sort">冒泡排序</h2>
 
