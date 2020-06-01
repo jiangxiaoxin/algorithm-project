@@ -12,19 +12,21 @@
     }
 
     .big {
-      width: 100px;
+      width: 40px;
       height: 60px;
       background: red;
+      /* opacity: 0.2; */
       position: absolute;
       left: 0;
       top: 50%;
       transform: translateY(-50%);
       z-index: 100;
-      animation: bigmove 4s linear infinite alternate;
+      animation: bigmove 4s linear infinite;
+      border-radius: 5px;
     }
 
     .small {
-      width: 80px;
+      width: 10px;
       height: 40px;
       position: absolute;
       left: 10px;
@@ -32,15 +34,17 @@
       transform: translateY(-50%);
       z-index: 10;
       opacity: 0.6;
+      border-radius: 5px;
     }
 
     .small-1 {
       background: blue;
-      animation: smallmove 4s linear 1s infinite alternate;
+      animation: smallmove1 4s linear infinite;
     }
 
     .small-2 {
       background: green;
+      animation: smallmove2 4s linear infinite;
     }
 
     .outer {
@@ -51,22 +55,73 @@
     }
 
     @keyframes bigmove {
-       0%{
+      0%{
+        left: 0px;
+      }
+      10% {
+        left: 0px;
+      }
+      40% {
+        left: 200px;
+      }
+      60% {
+        left: 200px;
+      }
+      90% {
         left: 0px;
       }
       100% {
-        left: 200px;
+        left: 0px;
       }
     }
 
-    @keyframes smallmove {
-      from {
-        left: 10px;
-        opacity: 0.6;
+    @keyframes smallmove1 {
+      0% {
+        left: 0px;
+        opacity: 0.8;
       }
-      to {
-        left: 210px;
-        opacity: 0.1;
+      15% {
+        left: 0px;
+        opacity: 0.8;
+      }
+      45% {
+        left: 230px;
+        opacity: 0.2;
+      }
+      65% {
+        left: 230px;
+        opacity: 0.8;
+      }
+      95% {
+        left: 0px;
+        opacity: 0.2;
+      }
+      100% {
+        left: 0px;
+        opacity: 0.8;
+      }
+    }
+
+    @keyframes smallmove2 {
+      0% {
+        left: 0px;
+        opacity: 0.8;
+      }
+      20% {
+        left: 0px;
+        opacity: 0.8;
+      }
+      50% {
+        left: 230px;
+        opacity: 0.2;
+      }
+      70% {
+        left: 230px;
+        opacity: 0.8;
+      }
+      100% {
+        left: 0px;
+        opacity: 0.2;
       }
     }
 
@@ -76,6 +131,7 @@
   <div class="outer">
     <div class="big"></div>
     <div class="small small-1"></div>
+    <div class="small small-2"></div>
   </div>
 </body>
 </html>
