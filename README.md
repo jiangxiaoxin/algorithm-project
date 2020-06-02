@@ -11,26 +11,7 @@
 
 > 在 vscode 里测试时，会有时候结果不对，不知为啥。还是运行 dev 吧。
 
-[二叉树](./src/structure/二叉树/index.md)
+## 书目
 
-[二叉查找树](./src/structure/binary_search_tree/README.md)
-
-[平衡二叉树](./src/structure/平衡二叉树/index.md)
-
-[堆和优先队列](./src/structure/堆和优先队列/index.md)
-
-[霍夫曼编码](./src/structure/霍夫曼/index.md)
-
-[散列表]()
-
-[图](./src/structure/图/index.md)
-
-[动态规划](./src/structure/动态规划/index.md)
-
-[贪心算法]()
-
-[红黑树]()
-
-[排序](./src/sort/README.md)
-
----
+- 数据结构-严蔚敏版
+- 数据结构，算法和应用-中文第2版
