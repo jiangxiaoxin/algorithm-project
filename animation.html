@@ -134,4 +134,26 @@
     <div class="small small-2"></div>
   </div>
 </body>
+<script src="./promise.js"></script>
+<script>
+  Promise.resolve(1).then((a) => {
+    console.log(100, a);
+    return 2;
+  }).then((a) => {
+    console.log(100, a);
+  })
+  setTimeout(() => {
+    console.log("settimeout");
+  }, 0);
+  console.log("script1");
+  
+</script>
+<script>
+  Promise.resolve(3).then((a) => {
+    console.log(100, a);
+  })
+  console.log("script2");
+  
+</script>
+<!-- <script src="./promise.js"></script> -->
 </html>
