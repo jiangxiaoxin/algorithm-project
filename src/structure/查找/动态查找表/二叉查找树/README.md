@@ -61,7 +61,7 @@ function findMax(tree) {
 
 就是给定一棵二叉搜索树，和一个值，查一下这个值是不是在这个树上
 
-```
+```js
 // 传入的树，必须是棵二叉搜索树才可以。所以其实问题最关键的是如何构建一棵二叉搜索树
 function tree_search(root, value) {
   if (root == nil) {  // 如果没有一颗真的树，那当然就找不到了
@@ -79,7 +79,7 @@ function tree_search(root, value) {
 
 上面是不断递归的方式，下面也可以用迭代去做
 
-```c
+```js
 function iterative_tree_search(root, value) {
   while(root != nil &&　root.value != value) {
     if (root.value < value ) {
@@ -128,7 +128,7 @@ function iterative_tree_search(root, value) {
   b. 如果x是父节点的右节点，那x比父节点大，不满足后继的要求，此时就要顺着路线往上找，一直找到一个父辈节点y，y是y.parent的左节点，那么此时x就是在y.parent这个节点的左树上，y.parent就是x的后继。
 
 
-```
+```js
 // 伪代码
 function tree_successor(x) {
   if (x.right != nil) {
@@ -167,7 +167,7 @@ function anotherWay(x) {
 }
 ```
 
-```
+```js
 function tree_minimum(x) {
   var node = x
   while(node != nil) {
@@ -177,7 +177,7 @@ function tree_minimum(x) {
 }
 ```
 
-```
+```js
 function tree_maxmium(x) {
   var node = x
   while(node != nil) {
