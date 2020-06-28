@@ -43,6 +43,9 @@ function inOrderTraverse(tree, level) {
     inOrderTraverse(node.left, level+1)
   }
   var space = multiSpace(level*2)
+  // 这里的console.log就是对当前节点的处理。
+  // 这里可以换成其他的处理代码，来实现特定的功能
+  // 先中后序，就是针对这个处理代码跟左右两子节点的处理的顺序来说的
   console.log(`${space} |node index:${node.index} value:${node.value}`);
   if (node.right) {
     inOrderTraverse(node.right, level+1);
