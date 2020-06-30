@@ -8,6 +8,8 @@ AVL树：
 
 > AVL树这个名字是以发明它的两个作者的名字简写而来，不是平常的英文缩写
 
+[link](http://btechsmartclass.com/data_structures/avl-trees.html)
+
 ## 操作
 
 插入和删除都有可能影响树的平衡，因此要对操作后的树进行判断，如果不平衡了，就要对树进行修正。这是总的方针
