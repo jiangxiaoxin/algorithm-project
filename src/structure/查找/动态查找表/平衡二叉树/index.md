@@ -36,5 +36,6 @@ AVL 树：
 单纯只考虑删除树中存在的节点。这删除比插入麻烦多了
 
 [link](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Trees/AVL-delete.html)
+[link](https://www.javatpoint.com/deletion-in-avl-tree)
 
 **都是旋转**

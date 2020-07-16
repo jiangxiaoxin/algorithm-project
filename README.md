@@ -15,3 +15,7 @@
 
 - 数据结构-严蔚敏版
 - 数据结构，算法和应用-中文第2版
+
+## other links
+[埃默里大学的算法课件](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/syl.html)
+[课件的pdf](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/book/PDF/index.html)
