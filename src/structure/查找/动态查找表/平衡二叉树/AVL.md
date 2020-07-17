@@ -10,8 +10,10 @@ AVL 树：
 
 > AVL 树这个名字是以发明它的两个作者的名字简写而来，不是平常的英文缩写
 
+[link](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Trees/AVL-delete.html)
+
 [link](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/?ref=lbp)
-[link](http://btechsmartclass.com/data_structures/avl-trees.html)
+[link](https://www.geeksforgeeks.org/avl-tree-set-2-deletion/)
 
 ## 操作
 
@@ -23,6 +25,8 @@ AVL 树：
 
 插入和删除都有可能影响树的平衡，因此要对操作后的树进行判断，如果不平衡了，就要对树进行修正。这是总的方针
 
+**AVL搜索树，所有的叶子节点，都必须是在最后一层，或者倒数第2层，否则就不平衡**
+
 ### 查找
 
 利用搜索树性质查找，方法跟搜索树是一样的，只是效率会更好，毕竟树的整体高度变低了。
@@ -31,11 +35,12 @@ AVL 树：
 
 单纯只考虑向树中插入没有的节点。
 
+[link](https://www.geeksforgeeks.org/avl-tree-set-1-insertion/?ref=lbp)
+
 ### 删除
 
-单纯只考虑删除树中存在的节点。这删除比插入麻烦多了
+单纯只考虑删除树中存在的节点。这删除比插入麻烦多了。
 
-[link](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/Trees/AVL-delete.html)
-[link](https://www.javatpoint.com/deletion-in-avl-tree)
+[link](https://www.geeksforgeeks.org/avl-tree-set-2-deletion/)
 
 **都是旋转**

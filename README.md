@@ -18,4 +18,5 @@
 
 ## other links
 [埃默里大学的算法课件](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/syl.html)
-[课件的pdf](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/book/PDF/index.html)
+
+[geeksforgeeks网站](https://www.geeksforgeeks.org/)
