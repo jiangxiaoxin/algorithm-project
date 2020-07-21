@@ -13,8 +13,9 @@
 
 ## 书目
 
-- 数据结构-严蔚敏版
-- 数据结构，算法和应用-中文第2版
+- 《数据结构》-严蔚敏版
+- 《数据结构，算法和应用c++实现》-中文第2版
+- 《算法导论》
 
 ## other links
 [埃默里大学的算法课件](http://www.mathcs.emory.edu/~cheung/Courses/323/Syllabus/syl.html)
