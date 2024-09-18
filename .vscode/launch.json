@@ -8,7 +8,8 @@
       "type": "node",
       "request": "launch",
       "name": "启动程序",
-      "program": "${workspaceFolder}\\src\\js\\railroad.js", //指定启动的入口文件
+      // "program": "${workspaceFolder}\\src\\js\\railroad.js", //指定启动的入口文件
+      "program": "${workspaceFolder}\\src\\debug\\1.js",
       "outFiles": [
         "${workspaceFolder}/**/*.js"
       ]
