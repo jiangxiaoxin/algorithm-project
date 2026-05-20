@@ -30,3 +30,5 @@ function quickSort(nums, left, right) {
 
 let arr = [3, 0, 2, 6, 8, 8, 8, 0, 5, 4]
 quickSort(arr, 0, arr.length - 1)
+console.log(arr);
+

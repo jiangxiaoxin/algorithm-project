@@ -3,6 +3,7 @@
 - `npm install`
 - `npm run dev`会监听文件变化并编译，编译完会执行代码。好处是直接运行代码看结果  
 - `npm run watch`会监听文件变化并编译，然后 f5 在 vscode 里运行。好处是方便断点调试
+- vscode 里新建 `javascript debug terminal`，然后在 vscode 里加断点，控制台里 `node index.js` 就可以启动并且断点了，支持 `import` 引用
 
 ## 注意
 
